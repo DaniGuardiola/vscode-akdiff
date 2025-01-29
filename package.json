@@ -1,0 +1,42 @@
+{
+	"name": "akdiff",
+	"displayName": "Ariakit Solid porting diff view",
+	"description": "Opens the diff view to port Ariakit React to Ariakit Solid.",
+	"publisher": "diola",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.96.0"
+	},
+	"repository": "https://github.com/daniguardiola/vscode-akdiff",
+	"main": "./out/extension.js",
+	"activationEvents": ["onStartupFinished"],
+	"contributes": {
+		"commands": [
+			{
+				"command": "ariakit-solid.openPortDiff",
+				"title": "Open Ariakit Solid diff"
+			}
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"command": "ariakit-solid.openPortDiff",
+					"when": "resourceExtname =~ /^\\.tsx?$/ && resourcePath =~ /packages\\/ariakit-solid-core\\/src/",
+					"group": "navigation"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "bun run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"lint": "biome check"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"@types/node": "20.x",
+		"@types/vscode": "^1.96.0",
+		"typescript": "^5.7.2"
+	}
+}

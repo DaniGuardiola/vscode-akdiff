@@ -1,0 +1,1 @@
+code --uninstall-extension vscode-akdiff.vsix
