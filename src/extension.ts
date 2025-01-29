@@ -2,12 +2,6 @@ import * as path from "node:path";
 import * as vscode from "vscode";
 
 export function activate(context: vscode.ExtensionContext): void {
-	setTimeout(() => {
-		vscode.window.showInformationMessage(
-			`resourceUri: ${vscode.window.activeTextEditor?.document.uri.toString()}`,
-		);
-	}, 5000);
-
 	const disposable = vscode.commands.registerCommand(
 		"ariakit-solid.openPortDiff",
 		(uri: vscode.Uri) => {
