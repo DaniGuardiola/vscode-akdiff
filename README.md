@@ -2,18 +2,41 @@
 
 A VS Code extension to facilitate porting Ariakit React into Ariakit Solid.
 
-## Installation
+## Setup
 
-You'll need [Bun](https://bun.sh/) installed. In Mac, you'll need the `code` command installed in your path ([instructions](https://code.visualstudio.com/docs/setup/mac#_configure-the-path-with-vs-code)).
+You'll need [Bun](https://bun.sh/) installed (`curl -fsSL https://bun.sh/install | bash`).
+
+In Mac, you'll need the `code` command installed in your path ([instructions](https://code.visualstudio.com/docs/setup/mac#_configure-the-path-with-vs-code)).
+
+### Install or update
+
+One-liner that doesn't leave files behind:
+
+```sh
+sh -c 'cd /tmp && git clone git@github.com:DaniGuardiola/vscode-akdiff.git && cd vscode-akdiff && bun install && ./install.sh && rm -rf /tmp/vscode-akdiff'
+```
+
+Alternatively, install:
 
 1. Clone the repo: `git clone git@github.com:DaniGuardiola/vscode-akdiff.git`
 2. Navigate to it: `cd vscode-akdiff`
 3. Install deps: `bun install`
 4. Install extension: `./install.sh`
 
-## Uninstallation
+Or update:
 
-Either run `./uninstall.sh`, execute `code --uninstall-extension diola.akdiff`, or use the VS Code interface.
+1. Navigate to the repo: `cd vscode-akdiff`
+2. Pull the latest changes: `git pull`
+3. Install deps: `bun install`
+4. Reinstall extension: `./install.sh`
+
+### Uninstall
+
+```sh
+code --uninstall-extension diola.akdiff
+```
+
+Or run `./uninstall.sh`. Or use the VS Code interface.
 
 ## Usage
 
