@@ -45,6 +45,16 @@
 					"when": "resourceExtname =~ /^\\.tsx?$/ && resourcePath =~ /examples\\/.*\\.solid\\.tsx?$/",
 					"group": "navigation"
 				}
+			],
+			"commandPalette": [
+				{
+					"command": "ariakit-solid.openPortDiff",
+					"when": "ariakitSolid.showPortDiff"
+				},
+				{
+					"command": "ariakit-solid.openExampleDiff",
+					"when": "ariakitSolid.showExampleDiff"
+				}
 			]
 		}
 	},

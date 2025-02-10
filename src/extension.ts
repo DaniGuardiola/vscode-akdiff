@@ -120,12 +120,59 @@ export function activate(context: vscode.ExtensionContext): void {
 					false,
 				);
 			}
+
+			if (
+				editor?.document.uri.fsPath.includes(
+					"/packages/ariakit-solid-core/src/",
+				)
+			) {
+				vscode.commands.executeCommand(
+					"setContext",
+					"ariakitSolid.showPortDiff",
+					true,
+				);
+			} else {
+				vscode.commands.executeCommand(
+					"setContext",
+					"ariakitSolid.showPortDiff",
+					false,
+				);
+			}
+
+			if (
+				editor?.document.uri.fsPath.includes("/examples/") &&
+				editor.document.uri.fsPath.includes(".solid.")
+			) {
+				vscode.commands.executeCommand(
+					"setContext",
+					"ariakitSolid.showExampleDiff",
+					true,
+				);
+			} else {
+				vscode.commands.executeCommand(
+					"setContext",
+					"ariakitSolid.showExampleDiff",
+					false,
+				);
+			}
 		},
 	);
 
 	vscode.commands.executeCommand(
 		"setContext",
 		"ariakitSolid.showContextOption",
+		false,
+	);
+
+	vscode.commands.executeCommand(
+		"setContext",
+		"ariakitSolid.showPortDiff",
+		false,
+	);
+
+	vscode.commands.executeCommand(
+		"setContext",
+		"ariakitSolid.showExampleDiff",
 		false,
 	);
 

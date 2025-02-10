@@ -42,11 +42,11 @@ Or run `./uninstall.sh`. Or use the VS Code interface.
 
 ### Source files
 
-Right click on a source file inside `packages/ariakit-solid-core/src` and select `Open Ariakit Solid diff`.
+Right click on a source file inside `packages/ariakit-solid-core/src` and select `Ariakit Solid: open diff`.
 
 ### Example files
 
-Right click on an example file inside `examples` with a `.solid.ts` or `.solid.tsx` extension and select `Open Ariakit Example diff`.
+Right click on an example file inside `examples` with a `.solid.ts` or `.solid.tsx` extension and select `Ariakit Solid: open diff (example)`.
 
 ### Commands
 
@@ -57,3 +57,8 @@ You can run the following commands:
 - `Component deps`: opens a menu to select a component and shows its resolved dependencies.
 
 These can also be run directly from the status bar (hover `Ariakit Solid`).
+
+From an Ariakit Solid file, or a Solid example, you can run:
+
+- `Ariakit Solid: open diff`: opens a diff view comparing the current file with the corresponding Ariakit React file.
+- `Ariakit Solid: open diff (example)`: opens a diff view comparing the current file with the corresponding React example file.
