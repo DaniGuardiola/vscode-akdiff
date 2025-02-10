@@ -40,4 +40,10 @@ Or run `./uninstall.sh`. Or use the VS Code interface.
 
 ## Usage
 
+### Source files
+
 Right click on a source file inside `packages/ariakit-solid-core/src` and select `Open Ariakit Solid diff`.
+
+### Example files
+
+Right click on an example file inside `examples` with a `.solid.ts` or `.solid.tsx` extension and select `Open Ariakit Example diff`.
