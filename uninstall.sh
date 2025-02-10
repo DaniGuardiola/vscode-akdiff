@@ -1,1 +1,1 @@
-code --uninstall-extension vscode-akdiff.vsix
+code --uninstall-extension diola.vscode-ariakit-solid

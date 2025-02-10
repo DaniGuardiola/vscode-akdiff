@@ -1,5 +1,5 @@
 {
-	"name": "akdiff",
+	"name": "ariakit-solid",
 	"displayName": "Ariakit Solid porting diff view",
 	"description": "Opens the diff view to port Ariakit React to Ariakit Solid.",
 	"publisher": "diola",
@@ -7,7 +7,7 @@
 	"engines": {
 		"vscode": "^1.96.0"
 	},
-	"repository": "https://github.com/daniguardiola/vscode-akdiff",
+	"repository": "https://github.com/daniguardiola/vscode-ariakit-solid",
 	"main": "./out/extension.js",
 	"activationEvents": ["onStartupFinished"],
 	"contributes": {
