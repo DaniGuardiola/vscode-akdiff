@@ -13,7 +13,7 @@ In Mac, you'll need the `code` command installed in your path ([instructions](ht
 One-liner that doesn't leave files behind:
 
 ```sh
-sh -c 'cd /tmp && git clone git@github.com:DaniGuardiola/vscode-ariakit-solid.git && cd vscode-ariakit-solid && bun install && ./install.sh && rm -rf /tmp/vscode-ariakit-solid'
+sh -c 'cd /tmp && rm -rf vscode-ariakit-solid && git clone git@github.com:DaniGuardiola/vscode-ariakit-solid.git && cd vscode-ariakit-solid && bun install && ./install.sh && rm -rf /tmp/vscode-ariakit-solid'
 ```
 
 Alternatively, install:
