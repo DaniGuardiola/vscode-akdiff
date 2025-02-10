@@ -14,11 +14,19 @@
 		"commands": [
 			{
 				"command": "ariakit-solid.openPortDiff",
-				"title": "Open Ariakit Solid diff"
+				"title": "Ariakit Solid: open diff"
 			},
 			{
 				"command": "ariakit-solid.openExampleDiff",
-				"title": "Open Ariakit Example diff"
+				"title": "Ariakit Solid: open diff"
+			},
+			{
+				"command": "ariakit-solid.portStatus",
+				"title": "Ariakit Solid: port status"
+			},
+			{
+				"command": "ariakit-solid.testStatus",
+				"title": "Ariakit Solid: test status"
 			}
 		],
 		"menus": {

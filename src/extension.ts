@@ -1,3 +1,4 @@
+import * as fs from "node:fs";
 import * as path from "node:path";
 import * as vscode from "vscode";
 
@@ -127,6 +128,47 @@ export function activate(context: vscode.ExtensionContext): void {
 		"ariakitSolid.showContextOption",
 		false,
 	);
+
+	const workspaceFolder: string | undefined =
+		vscode.workspace.workspaceFolders?.[0]?.uri.fsPath;
+	if (
+		workspaceFolder &&
+		fs.existsSync(path.join(workspaceFolder, "packages/ariakit-core"))
+	) {
+		const statusBarItem = vscode.window.createStatusBarItem(
+			vscode.StatusBarAlignment.Left,
+		);
+		statusBarItem.text = "Ariakit Solid";
+		statusBarItem.tooltip = new vscode.MarkdownString(
+			"[Port status](command:ariakit-solid.portStatus) | [Test status](command:ariakit-solid.testStatus)",
+		);
+		statusBarItem.tooltip.supportHtml = true;
+		statusBarItem.tooltip.isTrusted = true;
+		statusBarItem.show();
+		context.subscriptions.push(statusBarItem);
+	}
+
+	const portStatusCommand = vscode.commands.registerCommand(
+		"ariakit-solid.portStatus",
+		() => {
+			const terminal = vscode.window.createTerminal("Port Status");
+			terminal.sendText("bun packages/ariakit-solid-core/port-utils/status.ts");
+			terminal.show();
+		},
+	);
+
+	const testStatusCommand = vscode.commands.registerCommand(
+		"ariakit-solid.testStatus",
+		() => {
+			const terminal = vscode.window.createTerminal("Test Status");
+			terminal.sendText(
+				"bun packages/ariakit-solid-core/port-utils/test-status.ts",
+			);
+			terminal.show();
+		},
+	);
+
+	context.subscriptions.push(portStatusCommand, testStatusCommand);
 }
 
 export function deactivate(): void {}

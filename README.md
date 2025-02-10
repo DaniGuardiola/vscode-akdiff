@@ -47,3 +47,12 @@ Right click on a source file inside `packages/ariakit-solid-core/src` and select
 ### Example files
 
 Right click on an example file inside `examples` with a `.solid.ts` or `.solid.tsx` extension and select `Open Ariakit Example diff`.
+
+### Commands
+
+You can run the following commands:
+
+- `Port status`: shows the current porting status progress.
+- `Test status`: shows the current test status progress.
+
+These can also be run directly from the status bar (hover `Ariakit Solid`).
