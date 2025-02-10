@@ -15,6 +15,10 @@
 			{
 				"command": "ariakit-solid.openPortDiff",
 				"title": "Open Ariakit Solid diff"
+			},
+			{
+				"command": "ariakit-solid.openExampleDiff",
+				"title": "Open Ariakit Example diff"
 			}
 		],
 		"menus": {
@@ -22,6 +26,11 @@
 				{
 					"command": "ariakit-solid.openPortDiff",
 					"when": "resourceExtname =~ /^\\.tsx?$/ && resourcePath =~ /packages\\/ariakit-solid-core\\/src/",
+					"group": "navigation"
+				},
+				{
+					"command": "ariakit-solid.openExampleDiff",
+					"when": "resourceExtname =~ /^\\.tsx?$/ && resourcePath =~ /examples\\/.*\\.solid\\.tsx?$/",
 					"group": "navigation"
 				}
 			]
