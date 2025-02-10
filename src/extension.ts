@@ -191,6 +191,7 @@ export function activate(context: vscode.ExtensionContext): void {
 		);
 		statusBarItem.tooltip.supportHtml = true;
 		statusBarItem.tooltip.isTrusted = true;
+		statusBarItem.command = "ariakit-solid.showCommands";
 		statusBarItem.show();
 		context.subscriptions.push(statusBarItem);
 	}
@@ -249,10 +250,21 @@ export function activate(context: vscode.ExtensionContext): void {
 		},
 	);
 
+	const showCommandsCommand = vscode.commands.registerCommand(
+		"ariakit-solid.showCommands",
+		() => {
+			vscode.commands.executeCommand(
+				"workbench.action.quickOpen",
+				">Ariakit Solid: ",
+			);
+		},
+	);
+
 	context.subscriptions.push(
 		portStatusCommand,
 		testStatusCommand,
 		componentDepsCommand,
+		showCommandsCommand,
 	);
 }
 
