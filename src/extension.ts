@@ -140,7 +140,7 @@ export function activate(context: vscode.ExtensionContext): void {
 		);
 		statusBarItem.text = "Ariakit Solid";
 		statusBarItem.tooltip = new vscode.MarkdownString(
-			"[Port status](command:ariakit-solid.portStatus) | [Test status](command:ariakit-solid.testStatus)",
+			"[Port status](command:ariakit-solid.portStatus) | [Test status](command:ariakit-solid.testStatus) | [Component deps](command:ariakit-solid.componentDeps)",
 		);
 		statusBarItem.tooltip.supportHtml = true;
 		statusBarItem.tooltip.isTrusted = true;
@@ -168,7 +168,45 @@ export function activate(context: vscode.ExtensionContext): void {
 		},
 	);
 
-	context.subscriptions.push(portStatusCommand, testStatusCommand);
+	const componentDepsCommand = vscode.commands.registerCommand(
+		"ariakit-solid.componentDeps",
+		async () => {
+			if (!workspaceFolder) return;
+			const reactCorePath = path.join(
+				workspaceFolder,
+				"packages/ariakit-react-core/src",
+			);
+			const files = fs
+				.readdirSync(reactCorePath, { withFileTypes: true })
+				.flatMap((dirent) =>
+					dirent.isDirectory()
+						? fs
+								.readdirSync(path.join(reactCorePath, dirent.name))
+								.map((file) => `${dirent.name}/${file}`)
+						: [dirent.name],
+				)
+				.filter((file) => file.endsWith(".tsx"))
+				.map((file) => file.replace(".tsx", ""));
+
+			const selectedOption = await vscode.window.showQuickPick(files, {
+				placeHolder: "Select a component",
+			});
+
+			if (selectedOption) {
+				const terminal = vscode.window.createTerminal("Component Deps");
+				terminal.sendText(
+					`bun packages/ariakit-solid-core/port-utils/deps.ts -r ${selectedOption}`,
+				);
+				terminal.show();
+			}
+		},
+	);
+
+	context.subscriptions.push(
+		portStatusCommand,
+		testStatusCommand,
+		componentDepsCommand,
+	);
 }
 
 export function deactivate(): void {}

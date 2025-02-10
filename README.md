@@ -54,5 +54,6 @@ You can run the following commands:
 
 - `Port status`: shows the current porting status progress.
 - `Test status`: shows the current test status progress.
+- `Component deps`: opens a menu to select a component and shows its resolved dependencies.
 
 These can also be run directly from the status bar (hover `Ariakit Solid`).

@@ -18,7 +18,7 @@
 			},
 			{
 				"command": "ariakit-solid.openExampleDiff",
-				"title": "Ariakit Solid: open diff"
+				"title": "Ariakit Solid: open diff (example)"
 			},
 			{
 				"command": "ariakit-solid.portStatus",
@@ -27,6 +27,10 @@
 			{
 				"command": "ariakit-solid.testStatus",
 				"title": "Ariakit Solid: test status"
+			},
+			{
+				"command": "ariakit-solid.componentDeps",
+				"title": "Ariakit Solid: component deps"
 			}
 		],
 		"menus": {
