@@ -6,12 +6,14 @@ export function activate(context: vscode.ExtensionContext): void {
 	const disposableSource = vscode.commands.registerCommand(
 		"ariakit-solid.openPortDiff",
 		(uri: vscode.Uri) => {
-			if (!uri || !uri.fsPath) {
-				vscode.window.showErrorMessage("No file selected.");
+			const filePath =
+				uri?.fsPath ?? vscode.window.activeTextEditor?.document.uri.fsPath;
+
+			if (!filePath) {
+				vscode.window.showErrorMessage("No target file found.");
 				return;
 			}
 
-			const filePath: string = uri.fsPath;
 			const workspaceFolder: string | undefined =
 				vscode.workspace.workspaceFolders?.[0]?.uri.fsPath;
 			if (!workspaceFolder) {
@@ -54,12 +56,14 @@ export function activate(context: vscode.ExtensionContext): void {
 	const disposableExamples = vscode.commands.registerCommand(
 		"ariakit-solid.openExampleDiff",
 		(uri: vscode.Uri) => {
-			if (!uri || !uri.fsPath) {
-				vscode.window.showErrorMessage("No file selected.");
+			const filePath =
+				uri?.fsPath ?? vscode.window.activeTextEditor?.document.uri.fsPath;
+
+			if (!filePath) {
+				vscode.window.showErrorMessage("No target file found.");
 				return;
 			}
 
-			const filePath: string = uri.fsPath;
 			const workspaceFolder: string | undefined =
 				vscode.workspace.workspaceFolders?.[0]?.uri.fsPath;
 			if (!workspaceFolder) {
